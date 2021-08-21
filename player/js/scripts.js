@@ -43,7 +43,7 @@ $(document).ready(function() {
     $(".close-audio, .vid-link").click(function() {
         $(".footer-audio").removeClass('show-audio');
         $(".side-buttons").removeClass('show-side');
-        document.getElementById('myAudio').pause();
+        document.getElementById('audio').pause();
         $('.btt-footer').fadeIn(500);
         $('.playAudio').removeClass('active');
         $('.audio-box').fadeOut()
@@ -54,7 +54,7 @@ $(document).ready(function() {
         $('.audio-box').fadeIn();
         $('.myAudio').attr("src", $(this).attr("audioUrl"));
         $(".footer-audio").addClass('show-audio');
-        document.getElementById('myAudio').play();
+        document.getElementById('audio').play();
         $('.audioplayer').addClass("audioplayer-playing");
         $(".side-buttons").removeClass('show-side');
         $('.btt-footer').fadeOut(500);
@@ -66,7 +66,7 @@ $(document).ready(function() {
         $('.audio-box').fadeIn();
         $('.myAudio').attr("src", $(this).attr("audioUrl"));
         $(".footer-audio").addClass('show-audio');
-        document.getElementById('myAudio').play();
+        document.getElementById('audio').play();
         $('.audioplayer').addClass("audioplayer-playing");
         $(".side-buttons").removeClass('show-side');
         $('.btt-footer').fadeOut(500);
@@ -90,7 +90,7 @@ $(document).ready(function() {
     $(".close-audio, .vid-link").click(function() {
         $(".footer-audio").removeClass('show-audio');
         $(".side-buttons").removeClass('show-side');
-        document.getElementById('myAudio').pause();
+        document.getElementById('audio').pause();
         $('.btt-footer').fadeIn(500);
         $('.play-audio, .juke-play-audio').removeClass('active');
         $('.audio-box').fadeOut()
@@ -101,7 +101,7 @@ $(document).ready(function() {
         $('.audio-box').fadeIn();
         $('.myAudio').attr("src", $(this).attr("audioUrl"));
         $(".footer-audio").addClass('show-audio');
-        document.getElementById('myAudio').play();
+        document.getElementById('audio').play();
         $('.audioplayer').addClass("audioplayer-playing");
         $(".side-buttons").removeClass('show-side');
         $('.btt-footer').fadeOut(500);

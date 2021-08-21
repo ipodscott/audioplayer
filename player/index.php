@@ -70,6 +70,7 @@
   <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css" />
   <script src="js/jquery.mCustomScrollbar.min.js"></script>
    <link rel="stylesheet" href="css/audioplayer.css" />
+   <link rel="stylesheet" href="css/plyr.css" />
   <link rel="stylesheet" href="css/style.css">
   <title>Dieselpunk Industries Radio | <?php echo($title);?></title>
   
@@ -176,15 +177,59 @@
 	   <div class="footer-audio" style="display: block !important">
             <div class="audio-box">
                 <div class="controls shadow"> <i class="hide-audio material-icons">remove</i> <i class="material-icons close-audio">close</i></div>
-                <audio class="myAudio" id="myAudio" src="stationID.mp3" controls></audio>
+                
+                
+            
+            <audio class="myAudio" id="audio" preload="auto" tabindex="0" controls>
+                <source src="https://archive.org/download/S.S.KresgeBackgroundMusicRecordNo.205/S.%20S.%20Kresge%20Background%20Music%20No.%20205-cr%2Bnormalize%2Bcut.mp3">
+            </audio>
+                
             </div>
         </div>
 	 
 	 <div class="side-buttons show-right shadow"> <i class="material-icons">volume_up</i></div>
+	  <script src="js/plyr.js"></script>
 	  
-	  <script src="js/audioplayer.js"></script>
+	  <style>
+    .plyr--audio .plyr__controls{
+    border-radius:6px 0 6px 6px;
+    -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+	background-color:#333;
+}
+
+.plyr__controls__item.plyr__menu{
+    display:none;
+}
+
+
+.plyr__controls__item.plyr__volume{
+    /*display:none;*/
+}
+
+.plyr--audio .plyr__control.plyr__tab-focus, .plyr--audio .plyr__control:hover, .plyr--audio .plyr__control[aria-expanded=true]{
+	background: #595959;
+}
+
+.plyr__time{color:#fff;font-family: 'Lato', sans-serif; font-weight: 700;}
+.plyr__control{color:#fff;}
+.plyr__controls__item.plyr__volume{
+	display: none !important;
+}
+.plyr__progress {font-family: 'Lato', sans-serif; font-weight: 700;}
+.plyr--full-ui input[type=range]{
+	color: #ff0000 !important;
+}
+
+</style>
+	  
+  <script>
+    const player = new Plyr('#audio');
+</script>
+	  
 	  <script src="js/scripts.js"></script>
-	  <script>$( function() { $( 'audio' ).audioPlayer(); } );</script>
+	
+	
 	    <script>
 		(function($){
 			$(window).on("load",function(){
