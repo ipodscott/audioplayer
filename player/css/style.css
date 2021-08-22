@@ -470,13 +470,6 @@ ul .material-icons {
     font-size: 24px
 }
 
-
-.audio-box .controls .material-icons {
-    font-size: 24px;
-    opacity: .9;
-    transition: all 0.5s
-}
-
 .audio-box .material-icons:hover {
     opacity: 1
 }
@@ -492,6 +485,38 @@ ul .material-icons {
     box-shadow: none!important
 }
 
+
+   .plyr--audio .plyr__controls{
+    border-radius:4px 0 4px 4px;
+    -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+	background-color:#333;
+	padding: var(--plyr-control-spacing,3px);
+}
+
+.plyr__controls__item.plyr__menu{
+    display:none;
+}
+
+
+.plyr__controls__item.plyr__volume{
+    /*display:none;*/
+}
+
+.plyr--audio .plyr__control.plyr__tab-focus, .plyr--audio .plyr__control:hover, .plyr--audio .plyr__control[aria-expanded=true]{
+	background: #595959;
+}
+
+.plyr__time{color:#fff;font-family: 'Lato', sans-serif; font-weight: 700;}
+.plyr__control{color:#fff;}
+.plyr__controls__item.plyr__volume{
+	display: none !important;
+}
+.plyr__progress {font-family: 'Lato', sans-serif; font-weight: 700;}
+.plyr--full-ui input[type=range]{
+	color: #ff0000 !important;
+}
+
 .audio-box .controls {
     display: flex;
     justify-content: space-around;
@@ -504,12 +529,19 @@ ul .material-icons {
     border-style: solid;
     border-width: 1px 1px 0 1px;
     border-color: #333;
-    margin-top: -35px;
+    margin-top: -29px;
     right: 0;
     text-align: center
     overflow: hidden;
-    padding: 3px 0 5px 0;
-    border-radius: 6px 6px 0px 0px;
+    padding: 5px 0 5px 0;
+    border-radius: 4px 4px 0px 0px;
+}
+
+
+.audio-box .controls .material-icons {
+    font-size: 18px;
+    opacity: .9;
+    transition: all 0.5s
 }
 
 .audioplayer {

@@ -189,40 +189,8 @@
 	 
 	 <div class="side-buttons show-right shadow"> <i class="material-icons">volume_up</i></div>
 	  <script src="js/plyr.js"></script>
-	  
-	  <style>
-    .plyr--audio .plyr__controls{
-    border-radius:6px 0 6px 6px;
-    -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-	background-color:#333;
-}
-
-.plyr__controls__item.plyr__menu{
-    display:none;
-}
 
 
-.plyr__controls__item.plyr__volume{
-    /*display:none;*/
-}
-
-.plyr--audio .plyr__control.plyr__tab-focus, .plyr--audio .plyr__control:hover, .plyr--audio .plyr__control[aria-expanded=true]{
-	background: #595959;
-}
-
-.plyr__time{color:#fff;font-family: 'Lato', sans-serif; font-weight: 700;}
-.plyr__control{color:#fff;}
-.plyr__controls__item.plyr__volume{
-	display: none !important;
-}
-.plyr__progress {font-family: 'Lato', sans-serif; font-weight: 700;}
-.plyr--full-ui input[type=range]{
-	color: #ff0000 !important;
-}
-
-</style>
-	  
   <script>
     const player = new Plyr('#audio');
 </script>
