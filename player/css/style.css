@@ -494,6 +494,10 @@ ul .material-icons {
 	padding: var(--plyr-control-spacing,3px);
 }
 
+.plyr__controls button{
+	background: transparent !important;
+}
+
 .plyr__controls__item.plyr__menu{
     display:none;
 }
@@ -515,6 +519,12 @@ ul .material-icons {
 .plyr__progress {font-family: 'Lato', sans-serif; font-weight: 700;}
 .plyr--full-ui input[type=range]{
 	color: #ff0000 !important;
+}
+
+.plyr__time {
+	font-family: 'Open Sans', sans-serif !important;
+	font-weight: 300 !important;
+    font-size: 12px !important;
 }
 
 .audio-box .controls {
