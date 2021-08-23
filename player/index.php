@@ -142,7 +142,7 @@
 			
 			<div class="modal-show-info">
 				<div class="show-data">Show Info | Eps: <?php echo $audioFiles + $playListFiles; ?> | Date: <?php echo($year);?> <span class="close-modal"><i class="material-icons">close</i></span> </div> 
-				<div class="show-summary"><?php echo($showinfo);?><?php include( $summary );?></div>
+				<div class="show-summary"><?php include( $summary );?></div>
 			</div>
 		</div>
 	  </div>
