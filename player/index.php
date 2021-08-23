@@ -154,10 +154,7 @@
 		  </div>
 		</div>
 	  
-	<div style="display: none;" class="audio-footer" audioUrl="stationID.mp3">
-						<img src="https://www.radio.dieselpunkindustries.com/player/images/radio_top.svg"/>
-					</div>
-	 
+		 
 	 
 	  <div class="main-menu">
 		  <div class="list audio-menu">
