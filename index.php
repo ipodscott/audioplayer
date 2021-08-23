@@ -23,6 +23,7 @@
 		$days = $info[0]->days;
 		$months = $info[0]->months;
 		$years = $info[0]->years;
+		$summary  = "summary.txt"; // path to show summary
 ?>
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -96,6 +97,18 @@
 			  <span class="menu-btn"><i class="material-icons">menu</i></span>
 		  </div>
 	</div>
+	
+	
+	<div class="top-modal-box">
+		<div class="modal-info">
+			
+			
+			<div class="modal-show-info">
+				<div class="show-data">About the Player <span class="close-modal"><i class="material-icons">close</i></span> </div> 
+				<div class="show-summary"><?php echo($showinfo);?><?php include( $summary );?></div>
+			</div>
+		</div>
+	  </div>
 	
 	  <div class="main-menu">
 		  <div class="list audio-menu">
