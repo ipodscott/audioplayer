@@ -52,10 +52,10 @@ $(document).ready(function() {
     
      $(".play-audio, .juke-play-audio").click(function() {
         $('.audio-box').fadeIn();
-        $('.myAudio').attr("src", $(this).attr("audioUrl"));
+        //$('.myAudio').attr("src", $(this).attr("audioUrl"));
         $(".footer-audio").addClass('show-audio');
         document.getElementById('audio').play();
-        $('.audioplayer').addClass("audioplayer-playing");
+        //$('.audioplayer').addClass("audioplayer-playing");
         $(".side-buttons").removeClass('show-side');
         $('.btt-footer').fadeOut(500);
         $('.play-audio, .juke-play-audio').removeClass('active');

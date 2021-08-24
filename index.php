@@ -43,6 +43,10 @@
 	<link rel="stylesheet" href="player/css/style.css">
 
 		<style type="text/css">
+			
+			.landing-background{
+				background-image: url(/player/images/radio_0.jpeg);
+			}
 			.preloader{
 			display: flex;
 			position: fixed;
@@ -62,11 +66,39 @@
 				display: none;
 			
 			}
+			
+	.video{
+		position: fixed;
+		height: 100%;
+		width: 100%;
+		background-color: #000;
+		opacity: 0.6;
+	}
+	
+	#video_background { 
+		position: fixed; 
+		bottom: 0px; 
+		right: 0px; 
+		min-width: 100%; 
+		min-height: 100%; 
+		width: auto; 
+		height: auto; 
+		overflow: hidden; 
+	}	
+	
+	
 		</style>
 
 </head>
 
-<body class="landing-backgound">
+<body class="landing-backgound" style="background-image: url(/player/images/radio_0.jpeg);">
+	
+<div class="video">
+	<video muted id="video_background" autoplay="autoplay" loop="loop">
+		 <source src="bokeh.mp4" type="video/mp4">
+	</video>
+</div>
+
 	
 	<svg xmlns="http://www.w3.org/2000/svg" style="display:none" id="customSvgLibrary">
 	
@@ -135,7 +167,8 @@
 	 <script src="player/js/audioplayer.js"></script>
 	  <script src="player/js/scripts.js"></script>
 	  <script>$( function() { $( 'audio' ).audioPlayer(); } );</script>
-	    <script>
+	    <script>			
+		    
 		(function($){
 			$(window).on("load",function(){
 				
