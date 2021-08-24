@@ -4,5 +4,8 @@
 	"total_hours": "0.25",
 	"days": "0.0001",
 	"months": "0.00001",
-	"years": "NA"
+	"years": "NA",
+	"background_image": "/player/images/radio_0.jpeg",
+	"background_video": "bokeh.mp4",
+	"main_image": "player/images/audioplayer.svg"
 }]	

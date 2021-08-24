@@ -23,6 +23,9 @@
 		$days = $info[0]->days;
 		$months = $info[0]->months;
 		$years = $info[0]->years;
+		$background_image = $info[0]->background_image;
+		$background_video = $info[0]->background_video;
+		$main_image = $info[0]->main_image;
 		$summary  = "summary.txt"; // path to show summary
 ?>
 
@@ -44,28 +47,26 @@
 
 		<style type="text/css">
 			
-			.landing-background{
-				background-image: url(/player/images/radio_0.jpeg);
-			}
-			.preloader{
-			display: flex;
-			position: fixed;
-			top:0px;
-			left: 0px;
-			width: 100%;
-			height: 100vh;
-			z-index: 999;
-			align-items: center;
-			justify-content: center;
-			background-color: #000;
-			}
+		
+	.preloader{
+		display: flex;
+		position: fixed;
+		top:0px;
+		left: 0px;
+		width: 100%;
+		height: 100vh;
+		z-index: 999;
+		align-items: center;
+		justify-content: center;
+		background-color: #000;
+	}
 			
-			.preloader svg{
-				width: 300px !important;
-				height: 300px !important;
-				display: none;
-			
-			}
+	.preloader svg{
+		width: 300px !important;
+		height: 300px !important;
+		display: none;
+	
+	}
 			
 	.video{
 		position: fixed;
@@ -91,11 +92,11 @@
 
 </head>
 
-<body class="landing-backgound" style="background-image: url(/player/images/radio_0.jpeg);">
+<body class="landing-backgound" style="background-image: url(<?php echo $background_image; ?>);">
 	
 <div class="video">
 	<video muted id="video_background" autoplay="autoplay" loop="loop">
-		 <source src="bokeh.mp4" type="video/mp4">
+		 <source src="<?php echo $background_video; ?>" type="video/mp4">
 	</video>
 </div>
 
@@ -156,7 +157,7 @@
 	 <div class="home-main">
 		 <div class="home-main-content">
 			 <div class="home-content">
-				 <img class="show-menu" src="player/images/audioplayer.svg"/>
+				 <img class="show-menu" src="<?php echo $main_image; ?>"/>
 				 <div class="info-block"><span>Available Series: <?php echo count($menuItems);?></span><span>Total Episodes: <?php echo $total_episodes; ?></span></div>
 				 <div class="info-block"><span>Total Hours: <?php echo $total_hours; ?></span><span>Days: <?php echo $days; ?></span></div>
 				 <div class="info-block"><span>Months: <?php echo $months; ?></span><span>Years: <?php echo $years; ?></span></div>

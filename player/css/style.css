@@ -945,8 +945,7 @@ body::-webkit-scrollbar-thumb {
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: cover;
-	background-image: url(/player/images/radio_20.jpg);
-}
+	}
 
 .info-block{
 	display: flex;
