@@ -26,6 +26,7 @@
 		$background_image = $info[0]->background_image;
 		$background_video = $info[0]->background_video;
 		$main_image = $info[0]->main_image;
+		$streaming_url = $info[0]->stream_url;
 		$summary  = "summary.txt"; // path to show summary
 ?>
 
@@ -47,26 +48,28 @@
 
 		<style type="text/css">
 			
-		
-	.preloader{
-		display: flex;
-		position: fixed;
-		top:0px;
-		left: 0px;
-		width: 100%;
-		height: 100vh;
-		z-index: 999;
-		align-items: center;
-		justify-content: center;
-		background-color: #000;
-	}
+			.landing-background{
+				background-image: url(<?php echo $background_image; ?>);
+			}
+			.preloader{
+			display: flex;
+			position: fixed;
+			top:0px;
+			left: 0px;
+			width: 100%;
+			height: 100vh;
+			z-index: 999;
+			align-items: center;
+			justify-content: center;
+			background-color: #000;
+			}
 			
-	.preloader svg{
-		width: 300px !important;
-		height: 300px !important;
-		display: none;
-	
-	}
+			.preloader svg{
+				width: 300px !important;
+				height: 300px !important;
+				display: none;
+			
+			}
 			
 	.video{
 		position: fixed;
@@ -92,7 +95,7 @@
 
 </head>
 
-<body class="landing-backgound" style="background-image: url(<?php echo $background_image; ?>);">
+<body class="landing-backgound">
 	
 <div class="video">
 	<video muted id="video_background" autoplay="autoplay" loop="loop">
@@ -161,6 +164,7 @@
 				 <div class="info-block"><span>Available Series: <?php echo count($menuItems);?></span><span>Total Episodes: <?php echo $total_episodes; ?></span></div>
 				 <div class="info-block"><span>Total Hours: <?php echo $total_hours; ?></span><span>Days: <?php echo $days; ?></span></div>
 				 <div class="info-block"><span>Months: <?php echo $months; ?></span><span>Years: <?php echo $years; ?></span></div>
+				 <div><center><span class="listen-live" onclick="location.href='<?php echo $streaming_url; ?>';">Listen Live <span class="material-icons"> radio </span></span></center></div>
 			 </div>
 		 </div>
 	 </div>

@@ -1,11 +1,12 @@
 [{
-	"player_title": "AudioPlayer 1.0",
-	"total_episodes": "6",
-	"total_hours": "0.25",
-	"days": "0.0001",
-	"months": "0.00001",
-	"years": "NA",
+	"player_title": "DPI OTR Archive",
+	"total_episodes": "33745",
+	"total_hours": "14277",
+	"days": "595",
+	"months": "19.8",
+	"years": "1.65",
 	"background_image": "/player/images/radio_0.jpeg",
 	"background_video": "bokeh.mp4",
-	"main_image": "player/images/audioplayer.svg"
+	"main_image": "player/images/radio_top.svg",
+	"stream_url": "dpiradio.pls"
 }]	

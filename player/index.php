@@ -142,7 +142,7 @@
 			
 			<div class="modal-show-info">
 				<div class="show-data">Show Info | Eps: <?php echo $audioFiles + $playListFiles; ?> | Date: <?php echo($year);?> <span class="close-modal"><i class="material-icons">close</i></span> </div> 
-				<div class="show-summary"><?php include( $summary );?></div>
+				<div class="show-summary"><?php echo($showinfo);?><?php include( $summary );?></div>
 			</div>
 		</div>
 	  </div>
@@ -154,7 +154,10 @@
 		  </div>
 		</div>
 	  
-		 
+	<div style="display: none;" class="audio-footer" audioUrl="stationID.mp3">
+						<img src="https://www.radio.dieselpunkindustries.com/player/images/radio_top.svg"/>
+					</div>
+	 
 	 
 	  <div class="main-menu">
 		  <div class="list audio-menu">
@@ -199,7 +202,7 @@
 		(function($){
 			$(window).on("load",function(){
 				
-				$(".audio-menu, .audio-list").mCustomScrollbar({
+				$(".audio-menu").mCustomScrollbar({
 						theme:"light-thin",
 						scrollbarPosition: "inside",
 				});

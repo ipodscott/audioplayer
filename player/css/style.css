@@ -30,10 +30,31 @@ body{
 	left: 0px;
 	height: calc(100vh - 37px);
 	padding-top: 37px;
-	/* overflow-y: scroll; */
+	overflow-y: scroll;
 	width: 100%;
 	font-size: 12px;
 	line-height: 1em;
+}
+
+
+/* width */
+.audio-list::-webkit-scrollbar {
+  width: 2px;
+}
+
+/* Track */
+.audio-list::-webkit-scrollbar-track {
+  background: #000;
+}
+
+/* Handle */
+.audio-list::-webkit-scrollbar-thumb {
+  background: #efefef;
+}
+
+/* Handle on hover */
+.audio-list::-webkit-scrollbar-thumb:hover {
+  background: #fff;
 }
 
 .list-spacer{
@@ -514,8 +535,15 @@ ul .material-icons {
 .plyr__time{color:#fff;font-family: 'Lato', sans-serif; font-weight: 700;}
 .plyr__control{color:#fff;}
 .plyr__controls__item.plyr__volume{
-	display: none !important;
+	
 }
+
+@media (max-width: 812px) {
+ .plyr__controls__item.plyr__volume{
+	display: none !important;
+	}
+}
+
 .plyr__progress {font-family: 'Lato', sans-serif; font-weight: 700;}
 .plyr--full-ui input[type=range]{
 	color: #ff0000 !important;
@@ -945,7 +973,8 @@ body::-webkit-scrollbar-thumb {
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: cover;
-	}
+	background-image: url(/player/images/radio_20.jpg);
+}
 
 .info-block{
 	display: flex;
@@ -966,3 +995,35 @@ body::-webkit-scrollbar-thumb {
 	font-weight: normal;
 }
 
+.listen-live{
+	color: #ccc;
+    padding: 10px 15px 10px 15px;
+    width: calc(100% - 22px);
+    background-color: #710000;
+    box-shadow: 0px 0px 10px black;
+    margin: 0 auto 20px auto;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: normal;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: all 0.5s;
+    font-weight: 700;
+    display: flex;
+	justify-content: space-between;
+    align-items: center;
+    max-width: 100px;
+}
+
+.listen-live .material-icons{
+	font-size: 14px;
+	padding-left: 10px;
+}
+
+.listen-live:hover{
+	font-weight: 700;
+	color: #fff;
+	background-color: #870000;
+	box-shadow: 0px 0px 10px rgba(130, 0, 0, 0.6);
+}
