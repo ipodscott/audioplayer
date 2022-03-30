@@ -176,10 +176,6 @@
 			<div class="modal-show-info">
 				<div class="show-data"><?php echo $drop_title; ?> <span class="close-modal"><i class="material-icons">close</i></span> </div> 
 				<div class="show-summary">
-					<?php //if ( $showinfo ): ?>
-					    <?php // echo($showinfo);?>
-					<?php //endif; ?>
-					
 					<?php if ( $summary ): ?>
 					   <?php include( $summary );?>
 					<?php endif; ?>
