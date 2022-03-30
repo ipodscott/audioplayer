@@ -5,10 +5,10 @@
 	
 	<?php  
 	
-		$menu = $_GET['menu']; 
+		
 	
 	if(strpos($_SERVER['REQUEST_URI'], 'menu') !== false){
-		
+		$menu = $_GET['menu']; 
 	 
 	   $menuUrl = htmlspecialchars($_GET["menu"]);
 	   $menuTitle = htmlspecialchars($_GET["menu"]);
