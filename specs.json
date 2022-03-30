@@ -1,12 +1,16 @@
 [{
 	"player_title": "DPI OTR Archive",
-	"total_episodes": "33745",
-	"total_hours": "14277",
-	"days": "595",
-	"months": "19.8",
-	"years": "1.65",
+	"show_hide_info": "show",
+	"total_episodes": "35398",
+	"total_hours": "14986",
+	"days": "624",
+	"months": "20.81",
+	"years": "1.73",
 	"background_image": "/player/images/radio_0.jpeg",
 	"background_video": "bokeh.mp4",
 	"main_image": "player/images/radio_top.svg",
-	"stream_url": "dpiradio.pls"
+	"stream_url_title": "LISTEN LIVE",
+	"stream_url": "dpiradio.pls",
+	"drop_title": "About the Player",
+	"info_file": "summary.txt"
 }]	

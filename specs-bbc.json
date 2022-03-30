@@ -1,0 +1,16 @@
+[{
+	"player_title": "BBC Radio",
+	"show_hide_info": "hide",
+	"total_episodes": "205",
+	"total_hours": "92",
+	"days": "3.8",
+	"months": "0.128",
+	"years": "0.01",
+	"background_image": "bbc.jpg",
+	"background_video": "",
+	"main_image": "player/images/radio_top.svg",
+	"stream_url_title": "LISTEN LIVE",
+	"stream_url": "dpiradio.pls",
+	"drop_title": "About the Mystery Project",
+	"info_file": "summary-bbc.txt"
+}]	

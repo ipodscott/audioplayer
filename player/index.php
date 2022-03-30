@@ -3,15 +3,32 @@
 <html lang="en">
 <head>
 	
+	<?php  
+	
+		$menu = $_GET['menu']; 
+	
+	if(strpos($_SERVER['REQUEST_URI'], 'menu') !== false){
+		
+	 
+	   $menuUrl = htmlspecialchars($_GET["menu"]);
+	   $menuTitle = htmlspecialchars($_GET["menu"]);
+	   $menuUrl = '../menu-'. $menuTitle .'.json';
+	   $menuData = file_get_contents($menuUrl); // put the contents of the file into a variable
+	   $menuItems = json_decode($menuData); // decode the JSON feed	
+	   $homeLink = '?menu='.$menuTitle.'';
+	   
+		}else{ 
+		$homeLink = '';
+		$menuData = file_get_contents('../menu.json'); // put the contents of the file into a variable
+		$menuItems = json_decode($menuData); // decode the JSON feed
+		
+	} ?>
 	
 	<?php
 		$series = $_GET['series'];
 		$filecount = 0;
 		$files = glob("../$series/*.{mp3,MP3,m4a,M4A,Mp3}", GLOB_BRACE);
 		
-		// json menu
-		$menuData = file_get_contents('../menu.json'); // put the contents of the file into a variable
-		$menuItems = json_decode($menuData); // decode the JSON feed
 
 		if ($files){
 			$filecount = count($files);
@@ -24,8 +41,12 @@
 		$title = $info[0]->title;
 		$year = $info[0]->year;
 		$background = $info[0]->background;
-		$showinfo = $info[0]->info;
-		$summary  = "../$series/summary.txt"; // path to show summary
+		
+		if( isset( $info[0]->info ) ){
+			$showinfo = $info[0]->info;
+		} else {
+			$summary  = "../$series/summary.txt"; // path to show summary
+			}
 		
 		// json menu
 		
@@ -36,16 +57,20 @@
 	
 	<style type="text/css">
 	.preloader{
-		display: flex;
-		position: fixed;
-		top:0px;
-		left: 0px;
-		width: 100%;
-		height: 100vh;
-		z-index: 999;
-		align-items: center;
-		justify-content: center;
-		background-color: #000;
+		background-image: url(/player/images/radio_bg.jpg);
+			background-position: center center;
+			background-repeat: no-repeat;
+			display: flex;
+			position: fixed;
+			top:0px;
+			left: 0px;
+			width: 100%;
+			height: 100vh;
+			z-index: 999;
+			align-items: center;
+			justify-content: center;
+			background-size: contain;
+			background-color: #000;
 		}
 		
 		.preloader svg{
@@ -57,13 +82,13 @@
 	</style>
 	
   <meta charset="utf-8">
-  <meta name="description" content="<?php echo($showinfo); ?>">
+  <meta name="description" content="<?php echo($summary); ?>">
   <meta name="author" content="Dieselpunk Industries Radio">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, viewport-fit=cover">
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta property="og:type" content="website" />
 	<meta property="og:title" content="Dieselpunk Industries Radio | <?php echo($title);?>" />
-	<meta property="og:description" content="<?php echo($showinfo); ?>" />
+	<meta property="og:description" content="<?php echo($summary); ?>" />
 	<meta property="og:image" content="https://www.radio.dieselpunkindustries.com/screen_shot.jpg" />
   <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Material+Icons&display=swap" rel="stylesheet"></head>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -80,17 +105,17 @@
 	
 <symbol id="ripples" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="lds-ripple" style="background: none;">
   
-    <circle cx="50" cy="50" r="0" fill="none" ng-attr-stroke="{{config.c1}}" ng-attr-stroke-width="{{config.width}}" stroke="#333333" stroke-width="0.5">
+    <circle cx="50" cy="50" r="0" fill="none" ng-attr-stroke="{{config.c1}}" ng-attr-stroke-width="{{config.width}}" stroke="#666666" stroke-width="0.5">
       <animate attributeName="r" calcMode="spline" values="0;40" keyTimes="0;1" dur="2.6" keySplines="0 0.2 0.8 1" begin="-1s" repeatCount="indefinite"></animate>
       <animate attributeName="opacity" calcMode="spline" values="1;0" keyTimes="0;1" dur="2.6" keySplines="0.2 0 0.8 1" begin="-1s" repeatCount="indefinite"></animate>
     </circle>
     
-    <circle cx="50" cy="50" r="0" fill="none" ng-attr-stroke="{{config.c2}}" ng-attr-stroke-width="{{config.width}}" stroke="#333333" stroke-width="0.5">
+    <circle cx="50" cy="50" r="0" fill="none" ng-attr-stroke="{{config.c2}}" ng-attr-stroke-width="{{config.width}}" stroke="#666666" stroke-width="0.5">
       <animate attributeName="r" calcMode="spline" values="0;40" keyTimes="0;1" dur="2.6" keySplines="0 0.2 0.8 1" begin="0s" repeatCount="indefinite"></animate>
       <animate attributeName="opacity" calcMode="spline" values="1;0" keyTimes="0;1" dur="2.6" keySplines="0.2 0 0.8 1" begin="0s" repeatCount="indefinite"></animate>
     </circle>
     
-     <circle cx="50" cy="50" r="0" fill="none" ng-attr-stroke="{{config.c2}}" ng-attr-stroke-width="{{config.width}}" stroke="#333333" stroke-width="0.5">
+     <circle cx="50" cy="50" r="0" fill="none" ng-attr-stroke="{{config.c2}}" ng-attr-stroke-width="{{config.width}}" stroke="#666666" stroke-width="0.5">
       <animate attributeName="r" calcMode="spline" values="0;40" keyTimes="0;1" dur="2.6" keySplines="0 0.2 0.8 1" begin="1s" repeatCount="indefinite"></animate>
       <animate attributeName="opacity" calcMode="spline" values="1;0" keyTimes="0;1" dur="2.6" keySplines="0.2 0 0.8 1" begin="1s" repeatCount="indefinite"></animate>
     </circle>
@@ -142,7 +167,17 @@
 			
 			<div class="modal-show-info">
 				<div class="show-data">Show Info | Eps: <?php echo $audioFiles + $playListFiles; ?> | Date: <?php echo($year);?> <span class="close-modal"><i class="material-icons">close</i></span> </div> 
-				<div class="show-summary"><?php echo($showinfo);?><?php include( $summary );?></div>
+				<div class="show-summary">
+				
+					<?php if( isset( $info[0]->info ) ): ?>
+					    <?php echo($showinfo);?>
+					<?php endif; ?>
+					
+					<?php if ( $summary ): ?>
+					   <?php include( $summary );?>
+					<?php endif; ?>
+					
+				</div>
 			</div>
 		</div>
 	  </div>
@@ -150,7 +185,12 @@
 	  	<div class="top-bar">
 		  <div class="top-bar-info">
 			  	<div class="show-info"><span><?php echo($title); ?></div>
-			  	<span class="menu-btn"><i class="material-icons">menu</i></span></span><span class="home-btn"><a href="/"><i class="material-icons">home</i></a></span>
+			  	
+			  	<span class="menu-btn"><i class="material-icons">menu</i></span></span><span class="home-btn">
+			  		<a href="/<?php echo $homeLink;?>"><i class="material-icons">home</i></a>
+			  	</span>
+			  	
+			  	
 		  </div>
 		</div>
 	  
@@ -162,7 +202,7 @@
 	  <div class="main-menu">
 		  <div class="list audio-menu">
 		  	<?php foreach ($menuItems as $menuItem) : ?>
-				<div class="menu-link"><a href="/player/?series=<?php echo $menuItem->link; ?>"><i class="material-icons"> chevron_right </i></a> <?php echo $menuItem->title; ?> </div>
+				<div class="menu-link"><span title="Listen to: <?php echo $menuItem->title; ?>" onclick="location.href='/player/?series=<?php echo $menuItem->link; ?>';"><i class="material-icons"> chevron_right </i></span> <?php echo $menuItem->title; ?> </div>
 			<?php endforeach; ?>
 			<div class="menu-footer"><img class="footer-img" src="/player/images/radio_footer_dark.svg" alt="radio_footer_dark" ></div>
 			<div class="menu-title">MAIN MENU - Series: <?php echo count($menuItems);?><span class="close-btn"><i class="material-icons">close</i></span></div>
@@ -181,7 +221,7 @@
                 
             
             <audio class="myAudio" id="audio" preload="auto" tabindex="0" controls>
-                <source src="https://archive.org/download/S.S.KresgeBackgroundMusicRecordNo.205/S.%20S.%20Kresge%20Background%20Music%20No.%20205-cr%2Bnormalize%2Bcut.mp3">
+                <source src="">
             </audio>
                 
             </div>
@@ -197,25 +237,7 @@
 	  
 	  <script src="js/scripts.js"></script>
 	
-	
-	    <script>
-		(function($){
-			$(window).on("load",function(){
-				
-				$(".audio-menu").mCustomScrollbar({
-						theme:"light-thin",
-						scrollbarPosition: "inside",
-				});
-				
-			});
-		})(jQuery);
-		
-	$("a").click(function (event) {
-    event.preventDefault();
-    window.location = $(this).attr("href");
-});
-		
-	</script>
+
 	
 </body>
 </html>

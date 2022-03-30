@@ -9,8 +9,8 @@ $(document).ready(function() {
 	});
 	
 	$( ".show-info span" ).click(function() {
-	  $( ".modal-info" ).slideDown( 500, function() {
-		   $( ".modal-show-info" ).slideDown( 500, function() {});
+	  $( ".modal-info" ).slideToggle( 500, function() {
+		   $( ".modal-show-info" ).slideToggle( 500, function() {});
 	  });
 	});
 	

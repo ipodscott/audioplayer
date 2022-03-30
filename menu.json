@@ -1,14 +1,18 @@
 [
-    {
-        "title" : "Remote JSON Audio",
-        "link" : "json-audio-sample"
-    },
-    {
-        "title" : "Local Audio Sample",
-        "link" : "local-audio-sample"
-    },
-    {
-        "title" : "Remote JSON and Local Audio",
-        "link" : "json-and-local"
-    }
+  {
+    "title" : "JSON and Local",
+    "link" : "json-and-local"
+  },
+  {
+    "title" : "Audio Sample",
+    "link" : "audio-sample"
+  },
+  {
+    "title" : "JSON audio Sample",
+    "link" : "json-audio-sample"
+  },
+  {
+    "title" : "Local Audio Sample",
+    "link" : "local-audio-sample"
+  }
 ]

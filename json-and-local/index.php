@@ -5,6 +5,8 @@
 	$showname = str_replace("/","",$filename);
 ?>
 
+
+
 <script>
         location.href="https://www.radio.dieselpunkindustries.com/player/?series=<?php echo $showname; ?>";
 </script>

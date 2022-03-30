@@ -1,1 +1,1 @@
-Music taken from the YouTube music library <a href="https://www.youtube.com/audiolibrary">here</a> and remote audio samples imported via json. The local files are displayed first followed by the remote audio files.
+Seven Front Street was a Soap Opera that took place at a waterfront club night that offered the listener a chance to get away from it all and mix will all kinds of exciting people from all parts of the globe.
