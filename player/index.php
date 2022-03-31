@@ -43,16 +43,20 @@
 		$background = $info[0]->background;
 		
 		if( isset( $info[0]->info ) ){
-			$showinfo = $info[0]->info;
+			$summary = $info[0]->info;
 		} else {
 			$summary  = "../$series/summary.txt"; // path to show summary
 			}
 		
 		// json menu
 		
-		$playlistData = file_get_contents('../'.$series.'/audio-list.json'); // put the contents of the file into a variable
-		$playlistItems = json_decode($playlistData); // decode the JSON feed
+		$playlistData = file_get_contents('../'.$series.'/audio-list.json'); 
+		if( $playlistData ){
 		
+		
+				$playlistItems = json_decode($playlistData); // decode the JSON feed
+		
+		}
 	?>
 	
 	<style type="text/css">
@@ -87,7 +91,7 @@
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, viewport-fit=cover">
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta property="og:type" content="website" />
-	<meta property="og:title" content="Dieselpunk Industries Radio | <?php echo($title);?>" />
+  <meta property="og:title" content="Dieselpunk Industries Radio | <?php echo($title);?>" />
 	<meta property="og:description" content="<?php echo($summary); ?>" />
 	<meta property="og:image" content="https://www.radio.dieselpunkindustries.com/screen_shot.jpg" />
   <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Material+Icons&display=swap" rel="stylesheet"></head>
@@ -146,12 +150,16 @@
 						echo($html);
 					?>
 					
-					<?php foreach ($playlistItems as $playlistItem) : ?>
-				<div class='playAudio'>
-									<i class='material-icons play-audio' audiourl='<?php echo $playlistItem->url; ?>'>play_circle_filled</i>
-									<span class='pod-title'><div class='show-title'><span class='ep-title'><?php echo $playlistItem->title; ?></span> <span class='dl-link'></span></div></span><div class='link-grad' audioUrl='$num'></div><a class='dl-link' href='<?php echo $playlistItem->url; ?>' download><i class='material-icons'> cloud_download </i></a></div>
+					<?php if( $playlistData ): ?>
+					
+						<?php foreach ($playlistItems as $playlistItem) : ?>
+					<div class='playAudio'>
+										<i class='material-icons play-audio' audiourl='<?php echo $playlistItem->url; ?>'>play_circle_filled</i>
+										<span class='pod-title'><div class='show-title'><span class='ep-title'><?php echo $playlistItem->title; ?></span> <span class='dl-link'></span></div></span><div class='link-grad' audioUrl='$num'></div><a class='dl-link' href='<?php echo $playlistItem->url; ?>' download><i class='material-icons'> cloud_download </i></a></div>
+					
+				<?php endforeach; ?>
 				
-			<?php endforeach; ?>
+			<?php endif; ?>
 					
 				<div class="list-spacer"></div>
 					
