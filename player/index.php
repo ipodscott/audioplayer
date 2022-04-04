@@ -45,18 +45,18 @@
 		if( isset( $info[0]->info ) ){
 			$summary = $info[0]->info;
 		} else {
-			$summary  = "../$series/summary.txt"; // path to show summary
+			$summaryContent = "../$series/summary.txt";
+			$summary  = file_get_contents( $summaryContent ); // path to show summary
 			}
 		
 		// json menu
+		$jsonMenu = '../'.$series.'/audio-list.json';
 		
-		$playlistData = file_get_contents('../'.$series.'/audio-list.json'); 
-		if( $playlistData ){
-		
-		
-				$playlistItems = json_decode($playlistData); // decode the JSON feed
-		
+		if (file_exists($jsonMenu)) {
+			$playlistData = file_get_contents('../'.$series.'/audio-list.json'); 
+			$playlistItems = json_decode($playlistData); // decode the JSON feed
 		}
+		
 	?>
 	
 	<style type="text/css">
@@ -86,13 +86,13 @@
 	</style>
 	
   <meta charset="utf-8">
-  <meta name="description" content="<?php echo($summary); ?>">
+  <meta name="description" content="">
   <meta name="author" content="Dieselpunk Industries Radio">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, viewport-fit=cover">
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Dieselpunk Industries Radio | <?php echo($title);?>" />
-	<meta property="og:description" content="<?php echo($summary); ?>" />
+  <meta property="og:title" content="Dieselpunk Industries Radio | <?php echo $title; ?>" />
+	<meta property="og:description" content="Dieselpunk Industries Radio | <?php echo $title; ?>" />
 	<meta property="og:image" content="https://www.radio.dieselpunkindustries.com/screen_shot.jpg" />
   <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Material+Icons&display=swap" rel="stylesheet"></head>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -150,7 +150,7 @@
 						echo($html);
 					?>
 					
-					<?php if( $playlistData ): ?>
+					<?php if (file_exists($jsonMenu)) : ?>
 					
 						<?php foreach ($playlistItems as $playlistItem) : ?>
 					<div class='playAudio'>
@@ -178,11 +178,11 @@
 				<div class="show-summary">
 				
 					<?php if( isset( $info[0]->info ) ): ?>
-					    <?php echo($showinfo);?>
+					    <?php echo $summary ;?>
 					<?php endif; ?>
 					
 					<?php if ( $summary ): ?>
-					   <?php include( $summary );?>
+					   <?php echo $summary; ?>
 					<?php endif; ?>
 					
 				</div>

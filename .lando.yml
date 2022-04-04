@@ -1,2 +1,4 @@
 name: audioplayer
-recipe: lamp
+recipe: lemp
+config:
+  webroot: .
