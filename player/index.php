@@ -5,6 +5,9 @@
 	
 	<?php  
 	
+	ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 		
 	
 	if(strpos($_SERVER['REQUEST_URI'], 'menu') !== false){
@@ -48,6 +51,8 @@
 			$summaryContent = "../$series/summary.txt";
 			$summary  = file_get_contents( $summaryContent ); // path to show summary
 			}
+		// File Episode Count
+		$audioFiles = $filecount; // Counts the local files
 		
 		// json menu
 		$jsonMenu = '../'.$series.'/audio-list.json';
@@ -55,7 +60,12 @@
 		if (file_exists($jsonMenu)) {
 			$playlistData = file_get_contents('../'.$series.'/audio-list.json'); 
 			$playlistItems = json_decode($playlistData); // decode the JSON feed
+			$playListFiles = count($playlistItems); // Counts the files in the playlist files
+			$totalEpisodes = $playListFiles + $audioFiles ;
+		} else {
+			$totalEpisodes = $audioFiles;
 		}
+		
 		
 	?>
 	
@@ -168,13 +178,8 @@
 	  <div class="top-modal-box">
 		<div class="modal-info">
 			
-			<?php
-				$audioFiles = $filecount; 
-				$playListFiles = count($playlistItems);
-			?>
-			
 			<div class="modal-show-info">
-				<div class="show-data">Show Info | Eps: <?php echo $audioFiles + $playListFiles; ?> | Date: <?php echo($year);?> <span class="close-modal"><i class="material-icons">close</i></span> </div> 
+				<div class="show-data">Show Info | Eps: <?php echo $totalEpisodes; ?> | Date: <?php echo($year);?> <span class="close-modal"><i class="material-icons">close</i></span> </div> 
 				<div class="show-summary">
 				
 					<?php if( isset( $info[0]->info ) ): ?>
