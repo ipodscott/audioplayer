@@ -1078,3 +1078,8 @@ body::-webkit-scrollbar-thumb {
 	background-color: #870000;
 	box-shadow: 0px 0px 10px rgba(130, 0, 0, 0.6);
 }
+
+.xdebug-error.xe-warning th, .xdebug-error.xe-warning tr td{
+	background-color: #000 !important;
+	color: #fff !important;
+}
